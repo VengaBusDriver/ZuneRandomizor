@@ -1,0 +1,21 @@
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\bin\Zune\Debug\HelloZune.exe
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\bin\Zune\Debug\HelloZune.pdb
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\obj\Zune\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\obj\Zune\Debug\HelloZune.exe
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\obj\Zune\Debug\HelloZune.pdb
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\bin\Zune\Debug\HelloZune.exe
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\bin\Zune\Debug\HelloZune.pdb
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\obj\Zune\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\obj\Zune\Debug\HelloZune.exe
+C:\Users\C-Dog - The Leogkkg\Downloads\HelloZune\HelloZune\HelloZune\obj\Zune\Debug\HelloZune.pdb
+C:\Users\DJ\Desktop\hello zune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb
+C:\Users\DJ\Desktop\hello zune\HelloZune\bin\Zune\Debug\HelloZune.exe
+C:\Users\DJ\Desktop\hello zune\HelloZune\bin\Zune\Debug\HelloZune.pdb
+C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\HelloZune.exe
+C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\HelloZune.pdb

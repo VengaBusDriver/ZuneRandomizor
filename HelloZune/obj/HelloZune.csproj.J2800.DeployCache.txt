@@ -1,0 +1,11 @@
+ff82e4800a2041e388745f82b41edeaf
+0
+J2800
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\bin\Zune\Debug\
+128857843820000000
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\GameThumbnail.png
+2009-05-03T00:27:54.1514127Z
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\bin\Zune\Debug\HelloZune.exe
+2009-05-03T00:32:57.9864127Z
+C:\Users\James\Documents\Visual Studio 2008\Projects\HelloZune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb
+2009-05-03T00:35:28.9204127Z
