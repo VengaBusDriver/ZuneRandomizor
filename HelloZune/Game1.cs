@@ -31,7 +31,7 @@ namespace HelloZune
         Vector2 AlbPos;
         Vector2 AlbArtPos;
         Texture2D background;
-      
+        bool isPaused = false;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -120,7 +120,16 @@ namespace HelloZune
             }
             if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed)
             {
+                // forgot to set this up to continue music. 
+                if (isPaused)
+                {
                 MediaPlayer.Pause();
+                isPaused = false;
+                }
+                else {
+                    MediaPlayer.Resume();
+                }
+               
                 
 
             }
