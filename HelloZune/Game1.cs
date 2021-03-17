@@ -121,13 +121,15 @@ namespace HelloZune
             if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed)
             {
                 // forgot to set this up to continue music. 
-                if (isPaused)
+                if (!isPaused)
                 {
                 MediaPlayer.Pause();
-                isPaused = false;
+                isPaused = true;
                 }
                 else {
                     MediaPlayer.Resume();
+                    isPaused = false;
+                    
                 }
                
                 
