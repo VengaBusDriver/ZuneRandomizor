@@ -29,8 +29,11 @@ namespace HelloZune
         Vector2 FontPos;
         Vector2 ArtPos;
         Vector2 AlbPos;
+        Vector2 VolPos;
         Vector2 AlbArtPos;
         Texture2D background;
+        float CurVol;
+        int TrackNum;
         bool isPaused = false;
         public Game1()
         {
@@ -71,7 +74,8 @@ namespace HelloZune
             tahomaFont = Content.Load<SpriteFont>("Tahoma");
             FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 5,
         graphics.GraphicsDevice.Viewport.Height / 2);
-            ArtPos = new Vector2(10, 30);
+            ArtPos = new Vector2(0, 30);
+            VolPos = new Vector2(185, 30);
             AlbPos = new Vector2(0, 0);
         }
 
@@ -102,21 +106,21 @@ namespace HelloZune
                 MediaPlayer.Stop();
                 // generate a random valid index into Albums
                 int i = rand.Next(0, sampleMediaLibrary.Albums.Count - 1);
-
+                int s = rand.Next(0, sampleMediaLibrary.Albums[i].Songs.Count );
                 // play the first track from the album
-                MediaPlayer.Play(sampleMediaLibrary.Albums[i].Songs[0]);
+                MediaPlayer.Play(sampleMediaLibrary.Albums[i].Songs[s]);
 
                 // set the song name
                 ArtistName = sampleMediaLibrary.Albums[i].Artist.ToString();
                 AlbumName = sampleMediaLibrary.Albums[i].ToString();
-                SongName = sampleMediaLibrary.Albums[i].Songs[0].ToString();
+                SongName = sampleMediaLibrary.Albums[i].Songs[s].ToString();
                 background = sampleMediaLibrary.Albums[i].GetAlbumArt(this.Services);
-              
+                TrackNum = s;
                 // Reset Positions
                 FontPos = new Vector2(50, 300);
-              ArtPos = new Vector2(10, 30);
+                ArtPos = new Vector2(10, 30);
                 AlbPos = new Vector2(0, 0);
-                AlbArtPos = new Vector2(10,50);
+                AlbArtPos = new Vector2(0,50);
             }
             if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed)
             {
@@ -135,6 +139,20 @@ namespace HelloZune
                 
 
             }
+            if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
+            {
+                
+               CurVol = Convert.ToSingle(MediaPlayer.Volume);
+               MediaPlayer.Volume = CurVol + .1f;
+            }
+            if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
+            {
+                CurVol = Convert.ToSingle(MediaPlayer.Volume);
+                MediaPlayer.Volume = CurVol - .1f;
+            }
+            //check if song is done
+           
+
             if (SongName.Length >= 25)
             {
                 if (FontPos.X == -100)
@@ -182,17 +200,18 @@ namespace HelloZune
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Red);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
             if (background != null ) {
                 spriteBatch.Draw(background, AlbArtPos, Color.White);
            
             }
-            
-            spriteBatch.DrawString(tahomaFont, ArtistName, ArtPos, Color.Black);
-            spriteBatch.DrawString(tahomaFont, AlbumName, AlbPos, Color.Black);
-            spriteBatch.DrawString(tahomaFont, SongName, FontPos, Color.Black);
+
+            spriteBatch.DrawString(tahomaFont, ArtistName, ArtPos, Color.White);
+            spriteBatch.DrawString(tahomaFont, "Vol:" + CurVol, VolPos, Color.White);
+            spriteBatch.DrawString(tahomaFont, AlbumName, AlbPos, Color.White);
+            spriteBatch.DrawString(tahomaFont, TrackNum + ". " + SongName, FontPos, Color.White);
             spriteBatch.End();
 
 
