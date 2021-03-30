@@ -32,6 +32,17 @@ namespace HelloZune
         Vector2 VolPos;
         Vector2 AlbArtPos;
         Texture2D background;
+        int CurrentMenu = 1;
+        enum CurrentMenu2
+        {
+            NowPlaying,
+            MainMenu,
+            Settings,
+            AllSongs,
+            Artists,
+            Albums,
+            Playlists
+        }
         float CurVol;
         int TrackNum;
         bool isPaused = false;
@@ -55,8 +66,9 @@ namespace HelloZune
         {
             // TODO: Add your initialization logic here
 
-            base.Initialize(); 
-            SongName = "Press Right for Random";
+            base.Initialize();
+            CurrentMenu = 1;
+           
            
 
            
@@ -68,15 +80,27 @@ namespace HelloZune
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            switch (CurrentMenu)
+            {
+                case 1:
+                spriteBatch = new SpriteBatch(GraphicsDevice);
           //  soundEffect = Content.Load<SoundEffect>(@"Audio\CameraShutter");
-            tahomaFont = Content.Load<SpriteFont>("Tahoma");
-            FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 5,
-        graphics.GraphicsDevice.Viewport.Height / 2);
-            ArtPos = new Vector2(0, 30);
-            VolPos = new Vector2(185, 30);
-            AlbPos = new Vector2(0, 0);
+                tahomaFont = Content.Load<SpriteFont>("Tahoma");
+                FontPos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 5,
+                graphics.GraphicsDevice.Viewport.Height / 2);
+                ArtPos = new Vector2(0, 30);
+                VolPos = new Vector2(185, 30);
+                AlbPos = new Vector2(0, 0);
+                break;
+                case 2:
+                    // logic for case 2
+                break;
+                default:
+                Console.WriteLine("DEFAULT");
+                break;
+            }
+            // Create a new SpriteBatch, which can be used to draw textures.
+         
         }
 
         /// <summary>
@@ -96,98 +120,110 @@ namespace HelloZune
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-           
-            if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
-            {
-                
-                MediaPlayer.Stop();
-                // generate a random valid index into Albums
-                int i = rand.Next(0, sampleMediaLibrary.Albums.Count - 1);
-                int s = rand.Next(0, sampleMediaLibrary.Albums[i].Songs.Count );
-                // play the first track from the album
-                MediaPlayer.Play(sampleMediaLibrary.Albums[i].Songs[s]);
 
-                // set the song name
-                ArtistName = sampleMediaLibrary.Albums[i].Artist.ToString();
-                AlbumName = sampleMediaLibrary.Albums[i].ToString();
-                SongName = sampleMediaLibrary.Albums[i].Songs[s].ToString();
-                background = sampleMediaLibrary.Albums[i].GetAlbumArt(this.Services);
-                TrackNum = s;
-                // Reset Positions
-                FontPos = new Vector2(50, 300);
-                ArtPos = new Vector2(10, 30);
-                AlbPos = new Vector2(0, 0);
-                AlbArtPos = new Vector2(0,50);
-            }
-            if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed)
+            switch (CurrentMenu)
             {
-                // forgot to set this up to continue music. 
-                if (!isPaused)
-                {
-                MediaPlayer.Pause();
-                isPaused = true;
-                }
-                else {
-                    MediaPlayer.Resume();
-                    isPaused = false;
-                    
-                }
-               
-                
+                case 1:
+                    // Allows the game to exit
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                        this.Exit();
 
-            }
-            if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
-            {
-                
-               CurVol = Convert.ToSingle(MediaPlayer.Volume);
-               MediaPlayer.Volume = CurVol + .1f;
-            }
-            if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
-            {
-                CurVol = Convert.ToSingle(MediaPlayer.Volume);
-                MediaPlayer.Volume = CurVol - .1f;
-            }
-            //check if song is done
-           
+                    if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
+                    {
 
-            if (SongName.Length >= 25)
-            {
-                if (FontPos.X == -100)
-                {
-                    FontPos.X = 100;
-                }
-                else
-                {
-                    FontPos.X = FontPos.X - 1;
-                }
+                        MediaPlayer.Stop();
+                        // generate a random valid index into Albums
+                        int i = rand.Next(0, sampleMediaLibrary.Albums.Count - 1);
+                        int s = rand.Next(0, sampleMediaLibrary.Albums[i].Songs.Count);
+                        // play the first track from the album
+                        MediaPlayer.Play(sampleMediaLibrary.Albums[i].Songs[s]);
 
-            }
-            if (AlbumName.Length >= 25)
-            {
-                if (AlbPos.X == -125)
-                {
-                    AlbPos.X = 125;
-                }
-                else
-                {
-                    AlbPos.X = AlbPos.X - 1;
-                }
+                        // set the song name
+                        ArtistName = sampleMediaLibrary.Albums[i].Artist.ToString();
+                        AlbumName = sampleMediaLibrary.Albums[i].ToString();
+                        SongName = sampleMediaLibrary.Albums[i].Songs[s].ToString();
+                        background = sampleMediaLibrary.Albums[i].GetAlbumArt(this.Services);
+                        TrackNum = s;
+                        // Reset Positions
+                        FontPos = new Vector2(50, 300);
+                        ArtPos = new Vector2(10, 30);
+                        AlbPos = new Vector2(0, 0);
+                        AlbArtPos = new Vector2(0, 50);
+                    }
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.B == ButtonState.Pressed)
+                    {
+                        // forgot to set this up to continue music. 
+                        if (!isPaused)
+                        {
+                            MediaPlayer.Pause();
+                            isPaused = true;
+                        }
+                        else
+                        {
+                            MediaPlayer.Resume();
+                            isPaused = false;
 
-            }
-            if (ArtistName.Length >= 25)
-            {
-                if (ArtPos.X == -125)
-                {
-                    ArtPos.X = 125;
-                }
-                else
-                {
-                    ArtPos.X = ArtPos.X - 1;
-                }
+                        }
 
+
+
+                    }
+                    if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
+                    {
+
+                        CurVol = Convert.ToSingle(MediaPlayer.Volume);
+                        MediaPlayer.Volume = CurVol + .1f;
+                    }
+                    if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
+                    {
+                        CurVol = Convert.ToSingle(MediaPlayer.Volume);
+                        MediaPlayer.Volume = CurVol - .1f;
+                    }
+                    //check if song is done
+
+
+                    if (SongName.Length >= 25)
+                    {
+                        if (FontPos.X == -100)
+                        {
+                            FontPos.X = 100;
+                        }
+                        else
+                        {
+                            FontPos.X = FontPos.X - 1;
+                        }
+
+                    }
+                    if (AlbumName.Length >= 25)
+                    {
+                        if (AlbPos.X == -125)
+                        {
+                            AlbPos.X = 125;
+                        }
+                        else
+                        {
+                            AlbPos.X = AlbPos.X - 1;
+                        }
+
+                    }
+                    if (ArtistName.Length >= 25)
+                    {
+                        if (ArtPos.X == -125)
+                        {
+                            ArtPos.X = 125;
+                        }
+                        else
+                        {
+                            ArtPos.X = ArtPos.X - 1;
+                        }
+                        
+                    }
+                    break;
+                case 2: 
+                    break;
+                default:
+                Console.WriteLine("DEFAULT");
+                break;
             }
             // TODO: Add your update logic here
 
@@ -200,22 +236,34 @@ namespace HelloZune
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            switch (CurrentMenu)
+            {
+                case 1:
+                    GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
-            if (background != null ) {
-                spriteBatch.Draw(background, AlbArtPos, Color.White);
-           
+                    spriteBatch.Begin();
+                    if (background != null)
+                    {
+                        spriteBatch.Draw(background, AlbArtPos, Color.White);
+
+                    }
+
+                    spriteBatch.DrawString(tahomaFont, ArtistName, ArtPos, Color.White);
+                    spriteBatch.DrawString(tahomaFont, "Vol:" + CurVol, VolPos, Color.White);
+                    spriteBatch.DrawString(tahomaFont, AlbumName, AlbPos, Color.White);
+                    spriteBatch.DrawString(tahomaFont, TrackNum + ". " + SongName, FontPos, Color.White);
+                    spriteBatch.End();
+
+
+                    base.Draw(gameTime);
+            
+            break;
+            case 2:
+            break;
+             default:
+                Console.WriteLine("DEFAULT");
+                break;
             }
-
-            spriteBatch.DrawString(tahomaFont, ArtistName, ArtPos, Color.White);
-            spriteBatch.DrawString(tahomaFont, "Vol:" + CurVol, VolPos, Color.White);
-            spriteBatch.DrawString(tahomaFont, AlbumName, AlbPos, Color.White);
-            spriteBatch.DrawString(tahomaFont, TrackNum + ". " + SongName, FontPos, Color.White);
-            spriteBatch.End();
-
-
-            base.Draw(gameTime);
         }
     }
 }

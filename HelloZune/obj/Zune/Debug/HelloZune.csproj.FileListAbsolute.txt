@@ -19,3 +19,10 @@ C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\ResolveAssemblyReference
 C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\HelloZune.exe
 C:\Users\DJ\Desktop\hello zune\HelloZune\obj\Zune\Debug\HelloZune.pdb
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\obj\Zune\Debug\ResolveAssemblyReference.cache
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\obj\Zune\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\obj\Zune\Debug\HelloZune.exe
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\bin\Zune\Debug\HelloZune.exe
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\bin\Zune\Debug\HelloZune.pdb
+C:\Users\DJ\Documents\zune\hello zune\HelloZune\obj\Zune\Debug\HelloZune.pdb

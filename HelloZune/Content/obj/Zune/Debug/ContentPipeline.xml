@@ -7,18 +7,18 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\DJ\Desktop\hello zune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb</Output>
-      <Time>2021-03-17T18:51:53.518036-04:00</Time>
+      <Output>C:\Users\DJ\Documents\zune\hello zune\HelloZune\bin\Zune\Debug\Content\Tahoma.xnb</Output>
+      <Time>2021-03-29T22:05:48.7939165-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Zune</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\DJ\Desktop\hello zune\HelloZune\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\DJ\Desktop\hello zune\HelloZune\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\DJ\Desktop\hello zune\HelloZune\Content\obj\Zune\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\DJ\Desktop\hello zune\HelloZune\bin\Zune\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\DJ\Documents\zune\hello zune\HelloZune\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\DJ\Documents\zune\hello zune\HelloZune\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\DJ\Documents\zune\hello zune\HelloZune\Content\obj\Zune\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\DJ\Documents\zune\hello zune\HelloZune\bin\Zune\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
